@@ -1,0 +1,83 @@
+{
+  "dataRoles": [
+    {
+      "displayName": "Layers",
+      "kind": "Grouping",
+      "name": "Layers"
+    },
+    {
+      "displayName": "% value",
+      "kind": "Measure",
+      "name": "Values"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "scriptResult": {
+        "dataInput": {
+          "table": {
+            "rows": {
+              "select": [
+                { "for": { "in": "Layers" } },
+                { "for": { "in": "Values" } }
+              ],
+              "dataReductionAlgorithm": {
+                "top": {}
+              }
+            }
+          },
+      "conditions": [
+        { "min": 1 }  ]
+        },
+        "script": {
+          "scriptProviderDefault": "R",
+          "scriptOutputType": "html",
+          "source": {
+            "objectName": "rcv_script",
+            "propertyName": "source"
+          },
+          "provider": {
+            "objectName": "rcv_script",
+            "propertyName": "provider"
+          }
+        }
+      }
+    }
+  ],
+  "objects": {
+
+     "rcv_script": {
+      "properties": {
+        "provider": {
+          "type": {
+            "text": true
+          }
+        
+        },
+             "source": {
+        "type": {
+          "scripting": {
+            "source": true
+          }
+        }
+      }}
+    },
+
+
+  "directEdit": {  
+            "properties": {
+                "licensecode": {
+                  "type": {
+                    "text": true
+                  }}}
+            }            
+  },
+   "supportsMultiVisualSelection": true,
+  "suppressDefaultTitle": true,
+  "privileges": [
+    {
+      "name": "WebAccess",
+      "parameters": ["https://cdn.plot.ly/"]
+    }
+  ]
+}
